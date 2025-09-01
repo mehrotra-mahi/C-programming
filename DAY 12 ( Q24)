@@ -1,0 +1,15 @@
+#include <stdio.h>
+
+int main() 
+{
+    int units, bill;
+
+    printf("Enter units consumed: ");
+    scanf("%d", &units);
+
+    bill = units * 5;   // Flat rate ₹5 per unit
+
+    printf("Bill: ₹%d", bill);
+
+    return 0;
+}
