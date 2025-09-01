@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+int main() 
+{
+    int days, fine;
+
+    printf("Enter number of late days: ");
+    scanf("%d", &days);
+
+    if(days <= 10) {
+        fine = days * 4;   // Rs.4 per day for first 10 days
+    }
+    else if(days <= 30) {
+        fine = (10 * 4) + (days - 10) * 10; // Rs.10 per day after 10 days
+    }
+    else {
+        printf("Your membership is cancelled.\n");
+        return 0;
+    }
+
+    printf("Fine = Rs.%d\n", fine);
+
+    return 0;
+}
