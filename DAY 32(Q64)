@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+int main() {
+    int n, d, i, max = 0, most = 0;
+    int c[10] = {0};
+
+    printf("Enter a number: ");
+    scanf("%d", &n);
+
+    if (n < 0) n = -n;
+
+    while (n > 0) {
+        d = n % 10;
+        c[d]++;
+        n = n / 10;
+    }
+
+    for (i = 0; i < 10; i++) {
+        if (c[i] > max) {
+            max = c[i];
+            most = i;
+        }
+    }
+
+    printf("Most frequent digit = %d", most);
+    return 0;
+}
