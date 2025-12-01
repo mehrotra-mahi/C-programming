@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char s[200], longest[200];
+    int i = 0, j = 0, max = 0;
+
+    printf("Enter a sentence: ");
+    gets(s);  // simple input
+
+    while (s[i] != '\0') {
+        char word[200];
+        j = 0;
+
+        // collect characters until space
+        while (s[i] != ' ' && s[i] != '\0') {
+            word[j++] = s[i++];
+        }
+        word[j] = '\0';
+
+        // check if this word is longest
+        if (strlen(word) > max) {
+            max = strlen(word);
+            strcpy(longest, word);
+        }
+
+        if (s[i] == ' ') i++;  // skip space
+    }
+
+    printf("Longest word: %s", longest);
+    return 0;
+}
