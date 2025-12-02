@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+int main() {
+    char name[100];
+    int i;
+
+    gets(name);   
+    // print first letter
+    printf("%c", name[0]);
+
+    // print letters after spaces
+    for(i = 0; name[i] != '\0'; i++) {
+        if(name[i] == ' ')
+            printf("%c", name[i+1]);
+    }
+
+    return 0;
+}
