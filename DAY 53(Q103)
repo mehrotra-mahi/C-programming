@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+int main() {
+    int n;
+    scanf("%d", &n);   // number of elements
+
+    int arr[n];
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);   // array input
+    }
+
+    int totalSum = 0;
+    for (int i = 0; i < n; i++) {
+        totalSum += arr[i];
+    }
+
+    int leftSum = 0;
+
+    for (int i = 0; i < n; i++) {
+        int rightSum = totalSum - leftSum - arr[i];
+
+        if (leftSum == rightSum) {
+            printf("%d", i);   // pivot index
+            return 0;
+        }
+
+        leftSum += arr[i];
+    }
+
+    printf("-1");  // if no pivot exists
+    return 0;
+}
