@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char s[1000];
+    scanf("%s", s);
+
+    int freq[256] = {0};  // to track characters
+    int left = 0, maxLen = 0;
+
+    for (int right = 0; right < strlen(s); right++) {
+        freq[(unsigned char)s[right]]++;
+
+        // if character repeats, move left pointer
+        while (freq[(unsigned char)s[right]] > 1) {
+            freq[(unsigned char)s[left]]--;
+            left++;
+        }
+
+        int currentLen = right - left + 1;
+        if (currentLen > maxLen)
+            maxLen = currentLen;
+    }
+
+    printf("%d", maxLen);
+
+    return 0;
+}
