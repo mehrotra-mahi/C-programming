@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char s[100], t[100];
+    int freq[26] = {0};
+    
+    scanf("%s", s);
+    scanf("%s", t);
+    
+    // If lengths differ → not anagram
+    if (strlen(s) != strlen(t)) {
+        printf("Not Anagram");
+        return 0;
+    }
+    
+    // Count characters of s
+    for (int i = 0; s[i] != '\0'; i++)
+        freq[s[i] - 'a']++;
+    
+    // Reduce counts using t
+    for (int i = 0; t[i] != '\0'; i++)
+        freq[t[i] - 'a']--;
+    
+    // If all frequencies are zero → anagram
+    for (int i = 0; i < 26; i++) {
+        if (freq[i] != 0) {
+            printf("Not Anagram");
+            return 0;
+        }
+    }
+    
+    printf("Anagram");
+    return 0;
+}
