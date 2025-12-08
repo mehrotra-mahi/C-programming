@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+int main() {
+    int n, x;
+    scanf("%d", &n);
+
+    int arr[n];
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    scanf("%d", &x);
+
+    int left = 0, right = n - 1;
+    int ans = -1;
+
+    while (left <= right) {
+        int mid = left + (right - left) / 2;
+
+        if (arr[mid] >= x) {
+            ans = mid;          // possible answer
+            right = mid - 1;    // try to find smaller index
+        } else {
+            left = mid + 1;
+        }
+    }
+
+    printf("%d", ans);
+    return 0;
+}
